@@ -1,7 +1,17 @@
+
 .bg-dark{
     color: #fff;
+    background-color: #212121 !important;
 }
 
 .bg-dark i{
     color: #fff;
 }
+
+.card {
+    color: white;
+    border-radius: 30px;
+    background: #212121;
+    box-shadow: 10px 10px 30px rgb(25, 25, 25),
+                -5px -5px 10px rgb(60, 60, 60);
+   }
