@@ -1,82 +1,46 @@
+'use client'
+import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
+import FullCalendar from '@fullcalendar/react';
+import './style.css';
+const events = [
+    { title: 'Meeting', start: new Date() }
+]
+
 export default function Agenda() {
     return (
-        <div className="dropdown-menu d-block position-static p-2 mx-0 shadow rounded-3 w-340px" data-bs-theme="dark">
-            <div className="d-grid gap-1">
-                <div className="cal">
-                    <div className="cal-month">
-                        <button className="btn cal-btn" type="button">
-                            {/* <svg className="bi" width="16" height="16"><use xlink:href="#arrow-left-short"></use></svg> */}
-                        </button>
-                        <strong className="cal-month-name">June</strong>
-                        <select className="form-select cal-month-name d-none">
-                            <option value="January">January</option>
-                            <option value="February">February</option>
-                            <option value="March">March</option>
-                            <option value="April">April</option>
-                            <option value="May">May</option>
-                            <option value="June">June</option>
-                            <option value="July">July</option>
-                            <option value="August">August</option>
-                            <option value="September">September</option>
-                            <option value="October">October</option>
-                            <option selected value="November">November</option>
-                            <option value="December">December</option>
-                        </select>
-                        <button className="btn cal-btn" type="button">
-                            {/* <svg className="bi" width="16" height="16"><use xlink:href="#arrow-right-short"></use></svg> */}
-                        </button>
-                    </div>
-                    <div className="cal-weekdays text-body-secondary">
-                        <div className="cal-weekday">Sun</div>
-                        <div className="cal-weekday">Mon</div>
-                        <div className="cal-weekday">Tue</div>
-                        <div className="cal-weekday">Wed</div>
-                        <div className="cal-weekday">Thu</div>
-                        <div className="cal-weekday">Fri</div>
-                        <div className="cal-weekday">Sat</div>
-                    </div>
-                    <div className="cal-days">
-                        <button className="btn cal-btn"  type="button">30</button>
-                        <button className="btn cal-btn"  type="button">31</button>
-
-                        <button className="btn cal-btn" type="button">1</button>
-                        <button className="btn cal-btn" type="button">2</button>
-                        <button className="btn cal-btn" type="button">3</button>
-                        <button className="btn cal-btn" type="button">4</button>
-                        <button className="btn cal-btn" type="button">5</button>
-                        <button className="btn cal-btn" type="button">6</button>
-                        <button className="btn cal-btn" type="button">7</button>
-
-                        <button className="btn cal-btn" type="button">8</button>
-                        <button className="btn cal-btn" type="button">9</button>
-                        <button className="btn cal-btn" type="button">10</button>
-                        <button className="btn cal-btn" type="button">11</button>
-                        <button className="btn cal-btn" type="button">12</button>
-                        <button className="btn cal-btn" type="button">13</button>
-                        <button className="btn cal-btn" type="button">14</button>
-
-                        <button className="btn cal-btn" type="button">15</button>
-                        <button className="btn cal-btn" type="button">16</button>
-                        <button className="btn cal-btn" type="button">17</button>
-                        <button className="btn cal-btn" type="button">18</button>
-                        <button className="btn cal-btn" type="button">19</button>
-                        <button className="btn cal-btn" type="button">20</button>
-                        <button className="btn cal-btn" type="button">21</button>
-
-                        <button className="btn cal-btn" type="button">22</button>
-                        <button className="btn cal-btn" type="button">23</button>
-                        <button className="btn cal-btn" type="button">24</button>
-                        <button className="btn cal-btn" type="button">25</button>
-                        <button className="btn cal-btn" type="button">26</button>
-                        <button className="btn cal-btn" type="button">27</button>
-                        <button className="btn cal-btn" type="button">28</button>
-
-                        <button className="btn cal-btn" type="button">29</button>
-                        <button className="btn cal-btn" type="button">30</button>
-                        <button className="btn cal-btn" type="button">31</button>
-                    </div>
-                </div>
+        <>
+            <div className="card p-4">
+                <h6>Turmar das 19 as 20h</h6>
+                <p className='m-0'>Instrutor: Jhons 10º Khan Sib</p>
+                
             </div>
-        </div>
+            <div className="callendar card p-4 my-4" >
+
+                <FullCalendar
+                    plugins={[dayGridPlugin]}
+                    initialView='dayGridMonth'
+                    locale={'pt-br'}
+                    dayNames={['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado']}
+                    monthNames={['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez']}
+                    events={[
+                        { title: 'Presente', date: '2024-10-14' },
+                        { title: 'Falta', date: '2024-10-11' }
+                    ]}
+                    titleFormat={{
+                        month: 'long'
+                    }}
+                />
+            </div>
+        </>
+    )
+}
+
+// a custom render function
+function renderEventContent(eventInfo) {
+    return (
+        <>
+            <b>{eventInfo.timeText}</b>
+            <i>{eventInfo.event.title}</i>
+        </>
     )
 }

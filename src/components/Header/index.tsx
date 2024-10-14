@@ -22,6 +22,7 @@ export default function Header() {
             {/* fim foto do user */}
           </div>
 
+          
           <div className="d-flex align-items-center">
             <div className="mx-4">
               <button title="notification" className="btn rounded-circle border d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasResponsive" aria-controls="offcanvasResponsive">
@@ -56,11 +57,14 @@ export default function Header() {
 
           <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
+        <div className="w-100">
+          <img className="w-100" src="/assets/images/banner.png" />
+        </div>
         <div className="offcanvas-body">
+          <Nav Icon={() => <i className="bi bi-calendar3"></i>} title="Meus Dados" subtitle={"Minha informações de conta"} />
+         {/* <Nav />
          <Nav />
-         <Nav />
-         <Nav />
-         <Nav />
+         <Nav /> */}
           
         </div>
       </div>

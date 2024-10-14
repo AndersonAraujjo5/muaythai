@@ -1,11 +1,11 @@
+import Header from '@/components/Header';
+import Menu from '@/components/Menu';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import Script from "next/script";
 import "./globals.css";
-import Menu from '@/components/Menu';
-import Header from '@/components/Header';
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -32,7 +32,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} bg-dark `}>
         <Header/>
-        <div className='p-4'>
+        <div className='p-4 mb-5 pb-5'>
 
         {children}
         </div>

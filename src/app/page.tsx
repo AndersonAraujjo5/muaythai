@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 
-import DonutChart from "@/components/DonutChart"
+import DonutChart from "@/components/DonutChart";
 
 export default function Home() {
 
@@ -107,11 +107,11 @@ export default function Home() {
               <h6 className="m-0">Prox. Kruang</h6>
               <small>3º Khan sam</small>
               <div style={{ height: 5 }} className="progress-stacked">
-                <div className="progress w-50" role="progressbar" aria-label="Segment two" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" >
+                <div className="progress w-75 me-4" role="progressbar" aria-label="Segment two" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" >
                   <div className="progress-bar bg-warning"></div>
                 </div>
 
-                <div className="progress w-50" role="progressbar" aria-label="Segment two" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" >
+                <div className="progress w-75 me-4" role="progressbar" aria-label="Segment two" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" >
                   <div className="progress-bar bg-white"></div>
                 </div>
               </div>
@@ -120,28 +120,22 @@ export default function Home() {
         </div>
         <div className="d-flex align-content-center my-4">
           <div className="w-100">
-            <div className="w-50 m-auto">
+            <div className="w-75 me-4 m-auto">
               <DonutChart />
             </div>
           </div>
           <div className="w-100 row align-content-center">
             <div className="box">
-              <div className="d-flex">
-                <div style={{
-                  backgroundColor: '#ffc107',
-
-                }} className="px-2 me-2"> 40 </div>
+              <div className="d-flex align-items-center">
+                <h2 className="px-2 me-2 border rounded-3 bg-danger"> 40 </h2>
                 <p className="m-0"> Aulas para graduação</p>
               </div>
             </div>
 
             <div className="box my-3">
-              <div className="d-flex">
-                <div style={{
-                  backgroundColor: '#36A2EB',
-
-                }} className="px-2 me-2"> 40 </div>
-                <p className="m-0"> Aulas para finalizada</p>
+              <div className="d-flex align-items-center">
+                <h2 className="px-2 me-2 border rounded-3 bg-success"> 40 </h2>
+                <p className="m-0"> Aulas finalizada</p>
               </div>
             </div>
           </div>
@@ -190,66 +184,43 @@ export default function Home() {
 
       <div className="card my-4 p-4">
         <h4>Kruangs</h4>
-        <div id="carouselExample" className="carousel slide">
-          <div className="carousel-inner">
-  
-            <div className="carousel-item active">
-              <div className="row">
-                <div className="col-4">
-                  <small>1º Khan Nueng</small>
-                  <div style={{ height: 5 }} className="progress-stacked">
-                    <div className="progress w-100" role="progressbar" aria-label="Segment one" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" >
-                      <div className="progress-bar bg-white"></div>
+
+        <div className="w-100 overflow-x-auto">
+          <div className="d-flex mb-3" style={{ width: '400%' }}>
+            {
+              kruang.map((item, index) => (
+                <div className="w-75 me-4" key={item.id}>
+                  <small>{item.numero}º {item.nome}</small>
+                  {item.color.length == 1 ? item.color.map(color => (
+                    <div style={{ height: 5 }} className="progress-stacked" key={color}>
+                      <div className="progress w-100" role="progressbar" aria-label="Segment one" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" >
+                        <div className="progress-bar" style={{ backgroundColor: color }}></div>
+                      </div>
                     </div>
-                  </div>
+                  ))
+                    :
+                    <div style={{ height: 5 }} className="progress-stacked">
+                   { item.color.map(color => (
+                      <div key={color} className="progress w-50" role="progressbar" aria-label="Segment one" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" >
+                        <div className="progress-bar" style={{ backgroundColor: color }}></div>
+                      </div>
+                      ))
+                    }
+                    </div>
+                  }
                   <div className="row">
-                    <small className="mt-2">Iniciante</small>
-                    <small>3 meses</small>
+                    <small className="mt-2">{item.exp}</small>
+                    <small>{item.tempo}</small>
                   </div>
                 </div>
+              ))
+            }
 
-                <div className="col-4">
-                  <small>2º Khan song</small>
-                  <div style={{ height: 5 }} className="progress-stacked">
-                    <div className="progress w-100" role="progressbar" aria-label="Segment one" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" >
-                      <div className="progress-bar bg-warning"></div>
-                    </div>
 
-                  </div>
-                  <div className="row">
-                    <small className="mt-2">Iniciante</small>
-                    <small>3 meses</small>
-                  </div>
-                </div>
-
-                <div className="col-4">
-                  <small>2º Khan sam</small>
-                  <div style={{ height: 5 }} className="progress-stacked">
-                    <div className="progress w-50" role="progressbar" aria-label="Segment one" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" >
-                      <div className="progress-bar bg-warning"></div>
-                    </div>
-                    <div className="progress w-50" role="progressbar" aria-label="Segment one" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" >
-                      <div className="progress-bar bg-light"></div>
-                    </div>
-                  </div>
-                  <div className="row">
-                    <small className="mt-2">Iniciante</small>
-                    <small>3 meses</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-         
           </div>
-          <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span className="visually-hidden">Previous</span>
-          </button>
-          <button className="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-            <span className="carousel-control-next-icon" aria-hidden="true"></span>
-            <span className="visually-hidden">Next</span>
-          </button>
         </div>
+
+
       </div>
 
 
